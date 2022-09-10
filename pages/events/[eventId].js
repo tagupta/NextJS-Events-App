@@ -26,7 +26,7 @@ const EventDetailPage = () => {
           </div>
         </>
       ) : (
-        <h1>Event doesn't exist</h1>
+        <h1 className={styles.notExist}>This event does not exist.</h1>
       )}
     </div>
   );
