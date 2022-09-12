@@ -1,3 +1,4 @@
+import Head from "next/head";
 import EventContent from "../../components/event-details/event-content";
 import EventLogistics from "../../components/event-details/event-logistics";
 import EventSummary from "../../components/event-details/event-summary";
@@ -44,6 +45,10 @@ const EventDetailPage = ({ loadedEvent }) => {
   const { title, date, location, image, description } = loadedEvent;
   return (
     <div>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Head>
       <EventSummary title={title} />
       <div className={styles.detail}>
         <EventLogistics
