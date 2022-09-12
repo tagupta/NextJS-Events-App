@@ -18,7 +18,7 @@
 .content {
   width: 100%;
   padding: 0 1rem;
-  text-align: center;
+  text-align: justify;
 }
 
 .content h2 {
@@ -86,7 +86,9 @@
     width: 40%;
     height: 14rem;
   }
-
+  .address {
+    text-align: justify !important;
+  }
   .content {
     width: 60%;
     padding: 0;
