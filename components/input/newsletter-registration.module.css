@@ -1,0 +1,20 @@
+.newsletter {
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 20rem;
+  text-align: center;
+}
+
+.control input {
+  font: inherit;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.control button {
+  font: inherit;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}

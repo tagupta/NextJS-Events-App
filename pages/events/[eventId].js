@@ -2,6 +2,7 @@ import Head from "next/head";
 import EventContent from "../../components/event-details/event-content";
 import EventLogistics from "../../components/event-details/event-logistics";
 import EventSummary from "../../components/event-details/event-summary";
+import Comments from "../../components/input/comment";
 import { getEventById, getFeaturedEvents } from "../../helper/api-util";
 import styles from "../../styles/EventDetailPage.module.css";
 
@@ -59,6 +60,7 @@ const EventDetailPage = ({ loadedEvent }) => {
         />
         <EventContent description={description} />
       </div>
+      <Comments />
     </div>
   );
 };
