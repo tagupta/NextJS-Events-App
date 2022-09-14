@@ -1,16 +1,36 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./new-comments.module.css";
 
-const NewCommentForm = () => {
+const NewCommentForm = (props) => {
+  const [isValid, setIsValid] = useState(false);
   const emailInputRef = useRef();
   const nameInputRef = useRef();
   const commentInputRef = useRef();
 
   const handleNewComment = (event) => {
     event.preventDefault();
-    const enteredEmail = emailInputRef.current.value();
-    const enteredName = nameInputRef.current.value();
-    const enteredComment = commentInputRef.current.value();
+    const enteredEmail = emailInputRef.current.value;
+    const enteredName = nameInputRef.current.value;
+    const enteredComment = commentInputRef.current.value;
+
+    if (
+      !enteredEmail ||
+      enteredEmail.trim() === "" ||
+      !enteredEmail.includes("@") ||
+      !enteredName ||
+      enteredName.trim() === "" ||
+      !enteredComment ||
+      enteredComment.trim() === ""
+    ) {
+      setIsValid(true);
+      return;
+    }
+
+    props.onAddComment({
+      email: enteredEmail,
+      name: enteredName,
+      comment: enteredComment,
+    });
   };
 
   return (
@@ -30,6 +50,9 @@ const NewCommentForm = () => {
           <label htmlFor="comment">Your comment</label>
           <textarea id="comment" rows={5} ref={commentInputRef}></textarea>
         </div>
+        {isValid && (
+          <p className={styles.message}>Please enter valid values.</p>
+        )}
         <button>Submit</button>
       </form>
     </section>

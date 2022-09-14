@@ -1,17 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CommentList from "./comment-list";
 import styles from "./comment.module.css";
 import NewCommentForm from "./new-comments";
+import { useRouter } from "next/router";
 
-const Comments = () => {
-  const [toggleDisplayComment, setToggleDisplayComment] = useState(false);
+const Comments = ({ eventId }) => {
+  const [displayComment, setDisplayComment] = useState(false);
+  const [commentList, setCommentList] = useState([]);
+
+  useEffect(() => {
+    if (displayComment) {
+      fetch(`/api/comments/${eventId}`)
+        .then((res) => res.json())
+        .then((data) => setCommentList(data.comments));
+    }
+  }, [displayComment]);
+
+  const onAddComment = (details) => {
+    fetch(`/api/comments/${eventId}`, {
+      method: "POST",
+      body: JSON.stringify(details),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
+
   return (
     <section className={styles.comments}>
-      <button onClick={() => setToggleDisplayComment(!toggleDisplayComment)}>
-        {toggleDisplayComment ? "Hide Comments" : "Show Comments"}
+      <button onClick={() => setDisplayComment(!displayComment)}>
+        {displayComment ? "Hide Comments" : "Show Comments"}
       </button>
-      {toggleDisplayComment && <NewCommentForm />}
-      {toggleDisplayComment && <CommentList />}
+      {displayComment && <NewCommentForm onAddComment={onAddComment} />}
+      {displayComment && <CommentList commentList={commentList} />}
     </section>
   );
 };

@@ -43,7 +43,7 @@ const EventDetailPage = ({ loadedEvent }) => {
   if (!loadedEvent) {
     return <p className="center">Loading...</p>;
   }
-  const { title, date, location, image, description } = loadedEvent;
+  const { title, date, location, image, description, id } = loadedEvent;
   return (
     <div>
       <Head>
@@ -60,7 +60,7 @@ const EventDetailPage = ({ loadedEvent }) => {
         />
         <EventContent description={description} />
       </div>
-      <Comments />
+      <Comments eventId={id} />
     </div>
   );
 };
