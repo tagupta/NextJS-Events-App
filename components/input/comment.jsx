@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import CommentList from "./comment-list";
 import styles from "./comment.module.css";
 import NewCommentForm from "./new-comments";
-import { useRouter } from "next/router";
 
 const Comments = ({ eventId }) => {
   const [displayComment, setDisplayComment] = useState(false);
