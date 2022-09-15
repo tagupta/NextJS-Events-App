@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import styles from "./comment-list.module.css";
 
 const CommentList = ({ commentList }) => {
-  if (commentList.length === 0) {
-    return <p className={styles.comments}>No Comments...</p>;
-  }
-
   return (
     <section className={styles.comments}>
       <h3>Comments</h3>
