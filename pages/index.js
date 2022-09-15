@@ -2,6 +2,7 @@ import EventList from "../components/events/event-list";
 import { getFeaturedEvents } from "../helper/api-util";
 import Head from "next/head";
 import NewsLetterRegistration from "../components/input/newsletter-registration";
+import Notification from "../components/ui/notification";
 export async function getStaticProps() {
   const featuredEvents = await getFeaturedEvents();
 

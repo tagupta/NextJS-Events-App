@@ -1,0 +1,32 @@
+.notification {
+  background: aqua;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  min-width: 20rem;
+  color: #fff;
+  height: 5rem;
+  box-shadow: 0 -3px 6px rgb(0 0 0 / 20%);
+}
+
+.footer {
+  margin: 0.25rem auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.success {
+  background-color: #10be58;
+}
+
+.error {
+  background-color: #e65035;
+}
+
+.pending {
+  background-color: #177cbe;
+}
